@@ -1,0 +1,242 @@
+body {
+    background-image: url(https://regattatecidos.vteximg.com.br/arquivos/ids/156516/1.06.09.840999---PRETO.jpg?v=637516923780300000);
+    color: rgb(0, 0, 0);
+}
+
+h1 {
+    font-family: monospace;
+    color: white;
+    text-align: center;
+    box-shadow: 0vw 0vw 0.12vw white;
+    padding: 1.5vw;
+    border-radius: 2.1vw;
+}
+
+h2{
+    font-size: 0.5vw;
+
+}
+
+
+
+
+
+/* --- 1. CONFIGURAÇÃO PADRÃO DOS BOTÕES DE FILTRO --- */
+.PL_filtros {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+  margin: 20px;
+  max-width: 1200px;
+  font-family: sans-serif;
+  padding: 8px;
+border-radius: 10px;
+
+
+  background-color: gray;
+
+}
+
+.PL_filtros input[type="radio"] {
+  display: none; 
+}
+
+.PL_btn_f {
+  padding: 6px ;
+  border: 2px #ddd;
+  border-radius: 4px;
+  font-size: 9px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background-color: #f9f9f9;
+  max-width: 100px;
+  max-height: 20px;
+
+}
+
+.PL_btn_f:hover {
+    transform: scale(1.2);
+  border-color: #999;
+}
+
+
+/* --- 2. DESTACAR O BOTÃO QUE ESTÁ ATIVO --- */
+body:has(#f_todos:checked) .b_todos { border-color: #000; background-color: #333;}
+body:has(#f_nao_metal:checked) .b_nao_metal { border-color: #000; background-color: greenyellow; transform: scale(1.2); box-shadow: 0px 0px 10px greenyellow;}
+body:has(#f_gas_nobre:checked) .b_gas_nobre { border-color: #000; background-color: #9c27b0; transform: scale(1.2); box-shadow: 0px 0px 10px #9c27b0;}
+body:has(#f_metal_alcalino:checked) .b_metal_alcalino { border-color: #000; background-color:  orange; transform: scale(1.2); box-shadow: 0px 0px 10px orange;}
+body:has(#f_metal_alcalino_terroso:checked) .b_metal_alcalino_terroso { border-color: #000; background-color:  yellow; transform: scale(1.2); box-shadow: 0px 0px 10px yellow;}
+body:has(#f_semimetal:checked) .b_semimetal { border-color: #000; background-color: #009688; transform: scale(1.2); box-shadow: 0px 0px 10px #009688;}
+body:has(#f_halogenio:checked) .b_halogenio { border-color: #000; background-color: #e91e63; transform: scale(1.2); box-shadow: 0px 0px 10px #e91e63;}
+body:has(#f_metal_transicao:checked) .b_metal_transicao { border-color: #000; background-color: #f44336; transform: scale(1.2); box-shadow: 0px 0px 10px #f44336;}
+body:has(#f_metal_representativo:checked) .b_metal_representativo { border-color: #000; background-color: #91c9a4; transform: scale(1.2); box-shadow: 0px 0px 10px #91c9a4;}
+body:has(#f_lantanideo:checked) .b_lantanideo { border-color: #000; background-color:  #00bcd4; }
+body:has(#f_actinideo:checked) .b_actinideo { border-color: #000; background-color: #e037d8; transform: scale(1.2); box-shadow: 0px 0px 10px #e037d8;}
+
+
+/* --- 3. APLICAÇÃO DO FILTRO NA TABELA PERIÓDICA --- */
+
+/* Quando "Não Metais" estiver ativo: apaga tudo e acende os não-metais */
+body:has(#f_nao_metal:checked) .PL_tabela_container .PL_elemento { opacity: 0.15 !important; filter: grayscale(100%) !important; }
+body:has(#f_nao_metal:checked) .PL_tabela_container .PL_nao-metal { opacity: 1 !important; filter: none !important; transform: scale(1.05); z-index: 5; }
+
+/* Quando "Gases Nobres" estiver ativo */
+body:has(#f_gas_nobre:checked) .PL_tabela_container .PL_elemento { opacity: 0.15 !important; filter: grayscale(100%) !important; }
+body:has(#f_gas_nobre:checked) .PL_tabela_container .PL_gas-nobre { opacity: 1 !important; filter: none !important; transform: scale(1.05); z-index: 5; }
+
+/* Quando "Metais Alcalinos" estiver ativo */
+body:has(#f_metal_alcalino:checked) .PL_tabela_container .PL_elemento { opacity: 0.15 !important; filter: grayscale(100%) !important; }
+body:has(#f_metal_alcalino:checked) .PL_tabela_container .PL_metal-alcalino { opacity: 1 !important; filter: none !important; transform: scale(1.05); z-index: 5; }
+
+/* Quando "Alcalino-Terrosos" estiver ativo */
+body:has(#f_metal_alcalino_terroso:checked) .PL_tabela_container .PL_elemento { opacity: 0.15 !important; filter: grayscale(100%) !important; }
+body:has(#f_metal_alcalino_terroso:checked) .PL_tabela_container .PL_metal-alcalino_terroso { opacity: 1 !important; filter: none !important; transform: scale(1.05); z-index: 5; }
+
+/* Quando "Semimetais" estiver ativo */
+body:has(#f_semimetal:checked) .PL_tabela_container .PL_elemento { opacity: 0.15 !important; filter: grayscale(100%) !important; }
+body:has(#f_semimetal:checked) .PL_tabela_container .PL_semimetal { opacity: 1 !important; filter: none !important; transform: scale(1.05); z-index: 5; }
+
+/* Quando "Halogênios" estiver ativo */
+body:has(#f_halogenio:checked) .PL_tabela_container .PL_elemento { opacity: 0.15 !important; filter: grayscale(100%) !important; }
+body:has(#f_halogenio:checked) .PL_tabela_container .PL_halogenio { opacity: 1 !important; filter: none !important; transform: scale(1.05); z-index: 5; }
+
+/* Quando "Metais de Transição" estiver ativo */
+body:has(#f_metal_transicao:checked) .PL_tabela_container .PL_elemento { opacity: 0.15 !important; filter: grayscale(100%) !important; }
+body:has(#f_metal_transicao:checked) .PL_tabela_container .PL_metal-transicao { opacity: 1 !important; filter: none !important; transform: scale(1.05); z-index: 5; }
+
+/* Quando "Metais Representativos" estiver ativo */
+body:has(#f_metal_representativo:checked) .PL_tabela_container .PL_elemento { opacity: 0.15 !important; filter: grayscale(100%) !important; }
+body:has(#f_metal_representativo:checked) .PL_tabela_container .PL_metal-representativo { opacity: 1 !important; filter: none !important; transform: scale(1.05); z-index: 5; }
+
+/* Quando "Lantanídeos" estiver ativo */
+body:has(#f_lantanideo:checked) .PL_tabela_container .PL_elemento { opacity: 0.15 !important; filter: grayscale(100%) !important; }
+body:has(#f_lantanideo:checked) .PL_tabela_container .PL_lantanideo { opacity: 1 !important; filter: none !important; transform: scale(1.05); z-index: 5; }
+
+/* Quando "Actinídeos" estiver ativo */
+body:has(#f_actinideo:checked) .PL_tabela_container .PL_elemento { opacity: 0.15 !important; filter: grayscale(100%) !important; }
+body:has(#f_actinideo:checked) .PL_tabela_container .PL_actinideo { opacity: 1 !important; filter: none !important; transform: scale(1.05); z-index: 5; }
+
+.PL_tabela_container {
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOsAAADXCAMAAADMbFYxAAAADFBMVEWxsbOwsLOwsLKxsbIPMrRtAAACkUlEQVR4nO3d227qQBBEUY/5/3+OQDkCCZM85HhvuauWEGDJD1DT3WNy3VaOraqqqv6/Ww476qo/s5sIZEddJ9lzbPYHaJBdVii7sEBRe47dRCC7hVB2E4Giath+AaCoOWw3ESiqhu2wQVHr+t7BH55/avjrnB41h+3CAkXNpiR2E4HsqFH2wABF7a/2cATZLYSymwjUPWcou7BA73N4fXj+wYVOj9pz7MICRc3h59P95f7fw8HBdU/fnl/6377vt+fB+u3gUqfbWx7qqCKGiprD9gsAtYZnskcjyg4bFNWv9ocPkN1CKDtskB01yh6OIDtqlB02yI66TmJvBKD261D2BTmoNTyUPRxB7deZ7BZC2U0EsqNG2U0EsqNG2U0EsqOuk9iFBeocHsouLJAddZ3EHhigqM/q95/h2x639Xhc6+VgOzi48uk5uucMZRcWKGoO22GDuq4zRa2rvemB7C0PZYcNsqOuk9gbAWi77fdfr7vf9sfjvr8c3A4Ornu6XVYou7BA3XPm+uEbHevg4Mqn57AHBijqM50dNqjrOlPXdSZ7y0PZF6mgqL+PaDcRKGoO200EskdjncQeGKCo2ZTELixQ95yh7LBBdtQoO2yQHTXKDhtkR42yN3hQ1PWwHTao6zpT1Lramx4oqobtsEFR62q/AFDUe7U3AlDUbLLDBrVfZ+q6zhQ1h+3CAkX9f7okv4c1hh016l7Xaz3u9/374f32POXCp7eGh7LDBtlRo+yLVFD2NeJcdguh7MICdTbNZLcQyh6OoPbrTHYLoeywQXbUKDtskB01yt70QFE1bIcN6rrO1HWdKeq9JrHDBtlRo+ywQXbUKHvTA/VrazN1XWfqus4U9V6T2GGDkmbTFwYv/G2M30NEAAAAAElFTkSuQmCC);
+    color: rgb(0, 0, 0);
+    font-family: Arial, Helvetica, sans-serif;
+    display: grid;
+    grid-template-columns: repeat(18, 1fr);
+    grid-template-rows: repeat(9, 1fr);
+    gap: 0.33vw;
+    padding: 1.6vw;
+    border-radius: 1.6vw;
+    box-shadow: 0vw 0vw 0.4vw white;
+ 
+}
+
+
+
+.PL_elemento {
+    color: rgb(0, 0, 0);
+  
+ border-radius: 0.4vw;
+    box-shadow: 0vw 0vw 0.12vw rgb(0, 0, 0);
+    font-weight: 700;
+    padding: 0vw;
+    justify-content: space-between;
+    display: flex;
+    flex-direction: column;
+    margin: 0vw;
+    aspect-ratio: 1 / 1; 
+    max-width: 5vw;
+    max-height: 5.98vw;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+}
+
+.PL_elemento:hover {
+    transform: scale(1.15);
+    cursor: pointer;
+    z-index: 10;
+    transition: transform 0.2s ease; /* Corrigido de '0,2s' para a sintaxe padrão */
+}
+
+.PL_num { 
+    font-size: 0.7vw; 
+    text-align: center;
+}
+
+.PL_simb { 
+    font-size: 1vw; 
+    font-weight: bold; 
+    text-align: center; 
+  
+}
+
+.PL_nome { 
+    font-size: 5px; 
+    text-align: center; 
+   
+   
+    
+}
+
+.PL_massa{
+    text-align: center;
+    font-size: 0.65vw;
+
+}
+
+.PL_classificacao{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-template-rows: repeat(4,1fr);
+    color: rgb(255, 255, 255);
+    font-size: small;
+    border-radius: 1vw;
+    box-shadow: 0vw 0vw 0.4vw rgb(255, 255, 255);
+    background-color: black;
+    padding: 0.5vw;
+    
+}
+
+
+
+
+/* Categorias e Efeitos de Hover */
+.PL_nao-metal { background-color: greenyellow; }
+.PL_nao-metal:hover {
+    box-shadow: 0vw 0vw 0.8vw greenyellow;
+}
+
+.PL_metal-alcalino { background-color: orange;}
+.PL_metal-alcalino:hover {
+    box-shadow: 0vw 0vw 0.8vw orange;
+}
+
+.PL_metal-alcalino_terroso { background-color: yellow;  }
+.PL_metal-alcalino_terroso:hover {
+    box-shadow: 0vw 0vw 0.8vw yellow;
+}
+
+.PL_gas-nobre { background-color: #9c27b0;  }
+.PL_gas-nobre:hover { box-shadow: 0vw 0vw 0.8vw #9c27b0; }
+
+.PL_halogenio { background-color: #e91e63;  }
+.PL_halogenio:hover { box-shadow: 0vw 0vw 0.8vw #e91e63; }
+
+.PL_semimetal { background-color: #009688; }
+.PL_semimetal:hover { box-shadow: 0vw 0vw 0.8vw #009688; }
+
+.PL_metal-transicao { background-color: #f44336;}
+.PL_metal-transicao:hover { box-shadow: 0vw 0vw 0.8vw #f44336; }
+
+
+.PL_lantanideo { background-color: #00bcd4;  }
+.PL_lantanideo:hover { box-shadow: 0vw 0vw 0.8vw #00bcd4; }
+
+.PL_actinideo { background-color: #e037d8; }
+.PL_actinideo:hover { box-shadow: 0vw 0vw 0.8vw #e037d8; }
+
+.PL_metal-representativo{background-color: #91c9a4;}
+.PL_metal-representativo:hover{box-shadow: 0vw 0vw 0.8vw #91c9a4;}
+
+
